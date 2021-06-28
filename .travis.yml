@@ -14,7 +14,7 @@ after_success:
   - docker build muizmir/multi-server ./server
   - docker build muizmir/multi-worker ./worker
 
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password -stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push muizmir/multi-client
   - docker push muizmir/multi-nginx
