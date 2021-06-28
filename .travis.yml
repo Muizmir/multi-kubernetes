@@ -9,11 +9,11 @@ script:
   - docker run -e CI=true muizmir/react-test npm test 
 
 after_success:
-  - docker build muizmir/multi-client ./client
-  - docker build muizmir/multi-nginx ./nginx
-  - docker build muizmir/multi-server ./server
-  - docker build muizmir/multi-worker ./worker
-
+  - docker build -t muizmir/multi-client ./client
+  - docker build -t muizmir/multi-nginx ./nginx
+  - docker build -t muizmir/multi-server ./server
+  - docker build -t muizmir/multi-worker ./worker
+ 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push muizmir/multi-client
